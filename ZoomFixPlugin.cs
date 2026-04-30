@@ -1,4 +1,7 @@
 using BepInEx;
+using InControl;
+using System;
+using UnityEngine;
 
 namespace ZoomFix;
 
@@ -10,5 +13,14 @@ public partial class ZoomFixPlugin : BaseUnityPlugin
     {
         // Put your initialization logic here
         Logger.LogInfo($"Plugin {Name} ({Id}) has loaded!");
+    }
+
+    private void Update()
+    {
+        // TEST
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Logger.LogInfo("Key pressed!");
+        }
     }
 }
