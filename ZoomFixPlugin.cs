@@ -19,10 +19,32 @@ public partial class ZoomFixPlugin : BaseUnityPlugin
 
     private void Update()
     {
-        // TEST
+        HandleInput();
+    }
+
+    void HandleInput()
+    {
+        // Check for each input
         if (Input.GetKeyDown(Configuration.ZoomOut))
-        {
-            Logger.LogInfo("Zoom out!");
-        }
+            ZoomOut();
+        if (Input.GetKeyDown(Configuration.ZoomIn))
+            ZoomIn();
+        if (Input.GetKeyDown(Configuration.ResetZoom))
+            ResetZoom();
+    }
+
+    void ZoomOut()
+    {
+        Logger.LogInfo("Zoom out!");
+    }
+
+    void ZoomIn()
+    {
+        Logger.LogInfo("Zoom in!");
+    }
+
+    void ResetZoom()
+    {
+        Logger.LogInfo("Reset Zoom!");
     }
 }
