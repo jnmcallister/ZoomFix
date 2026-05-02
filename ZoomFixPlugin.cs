@@ -13,14 +13,16 @@ public partial class ZoomFixPlugin : BaseUnityPlugin
     {
         // Put your initialization logic here
         Logger.LogInfo($"Plugin {Name} ({Id}) has loaded!");
+
+        Configuration.Init(Config);
     }
 
     private void Update()
     {
         // TEST
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(Configuration.ZoomOut))
         {
-            Logger.LogInfo("Key pressed!");
+            Logger.LogInfo("Zoom out!");
         }
     }
 }
