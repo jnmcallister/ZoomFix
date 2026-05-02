@@ -35,16 +35,32 @@ public partial class ZoomFixPlugin : BaseUnityPlugin
 
     void ZoomOut()
     {
-        Logger.LogInfo("Zoom out!");
+        // Increase zoom factor (borrows some code from debug mod)
+        float currentZoomFactor = GameCameras.instance.tk2dCam.zoomFactor;
+        GameCameras.instance.tk2dCam.zoomFactor =
+            currentZoomFactor - currentZoomFactor * Configuration.ZoomMultiplier;
+
+        // Log statement
+        Logger.LogInfo($"Zoom in to {GameCameras.instance.tk2dCam.zoomFactor}");
     }
 
     void ZoomIn()
     {
-        Logger.LogInfo("Zoom in!");
+        // Increase zoom factor (borrows some code from debug mod)
+        float currentZoomFactor = GameCameras.instance.tk2dCam.zoomFactor;
+        GameCameras.instance.tk2dCam.zoomFactor = 
+            currentZoomFactor + currentZoomFactor * Configuration.ZoomMultiplier;
+
+        // Log statement
+        Logger.LogInfo($"Zoom out to {GameCameras.instance.tk2dCam.zoomFactor}");
     }
 
     void ResetZoom()
     {
-        Logger.LogInfo("Reset Zoom!");
+        // Set zoom to default (borrows some code from debug mod)
+        GameCameras.instance.tk2dCam.zoomFactor = Configuration.DefaultZoom;
+
+        // Log statement
+        Logger.LogInfo($"Reset zoom to {Configuration.DefaultZoom}");
     }
 }
